@@ -2,6 +2,7 @@ package org.example.Mappers;
 
 public class CompetencyLevelDTO {
 
+    private int id;
     private int level;
     private String description;
     private CompetencyDTO competency;
@@ -35,5 +36,13 @@ public class CompetencyLevelDTO {
 
     public void setCompetency(CompetencyDTO competency) {
         this.competency = competency;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

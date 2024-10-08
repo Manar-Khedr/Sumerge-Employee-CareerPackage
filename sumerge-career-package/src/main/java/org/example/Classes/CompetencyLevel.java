@@ -10,6 +10,7 @@ public class CompetencyLevel {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
+    private int id;
     private int level;
     private String description;
     @ManyToOne
@@ -41,6 +42,14 @@ public class CompetencyLevel {
 
     public Competency getCompetency() {
         return competency;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setCompetency(Competency competency) {

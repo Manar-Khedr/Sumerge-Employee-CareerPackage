@@ -26,7 +26,7 @@ public class CompetencyLevelService {
     }
 
     public void createCompetencyLevel(CompetencyLevelDTO competencyLevelDTO){
-        if(competencyLevelRepository.findById(competencyLevelDTO.getLevel()).isPresent()){
+        if(competencyLevelRepository.findById(competencyLevelDTO.getId()).isPresent()){
             throw new ExistsException("Competency Level already exists.");
         }
         if(competencyRepository.findByTitle(competencyLevelDTO.getCompetency().getTitle()).isEmpty()){
@@ -38,8 +38,8 @@ public class CompetencyLevelService {
         competencyLevelRepository.save(competencyLevel);
     }
 
-    public void deleteCompetencyLevel(int level){
-        Optional<CompetencyLevel> competencyLevel = competencyLevelRepository.findById(level);
+    public void deleteCompetencyLevel(int id){
+        Optional<CompetencyLevel> competencyLevel = competencyLevelRepository.findById(id);
         if(competencyLevel.isEmpty()){
             throw new ExistsException("Competency Level does not exist");
         }
@@ -47,7 +47,7 @@ public class CompetencyLevelService {
     }
 
     public void updateCompetencyLevel(CompetencyLevelDTO competencyLevelDTO){
-        Optional<CompetencyLevel> competencyLevel = competencyLevelRepository.findById(competencyLevelDTO.getLevel());
+        Optional<CompetencyLevel> competencyLevel = competencyLevelRepository.findById(competencyLevelDTO.getId());
         if(competencyLevel.isEmpty()){
             throw new ExistsException("Competency Level does not exist");
         }
@@ -61,8 +61,8 @@ public class CompetencyLevelService {
         competencyLevelRepository.save(updatedCompetencyLevel);
     }
 
-    public CompetencyLevelDTO getCompetencyLevel(int level){
-        Optional<CompetencyLevel> competencyLevel = competencyLevelRepository.findById(level);
+    public CompetencyLevelDTO getCompetencyLevel(int id){
+        Optional<CompetencyLevel> competencyLevel = competencyLevelRepository.findById(id);
         if(competencyLevel.isEmpty()){
             throw new ExistsException("Competency Level does not exist");
         }

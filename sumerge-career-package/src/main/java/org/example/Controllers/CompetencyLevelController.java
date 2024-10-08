@@ -22,8 +22,8 @@ public class CompetencyLevelController {
     }
 
     @DeleteMapping
-    public ResponseEntity<String> deleteCompetencyLevel(@RequestBody int level){
-        competencyLevelService.deleteCompetencyLevel(level);
+    public ResponseEntity<String> deleteCompetencyLevel(@RequestBody int id){
+        competencyLevelService.deleteCompetencyLevel(id);
         return ResponseEntity.ok("Competency Level deleted");
     }
 
@@ -33,9 +33,9 @@ public class CompetencyLevelController {
         return ResponseEntity.ok("Competency Level updated");
     }
 
-    @GetMapping("/{level}")
-    public ResponseEntity<CompetencyLevelDTO> getCompetencyLevel(@PathVariable int level){
-        return ResponseEntity.ok(competencyLevelService.getCompetencyLevel(level));
+    @GetMapping("/{id}")
+    public ResponseEntity<CompetencyLevelDTO> getCompetencyLevel(@PathVariable int id){
+        return ResponseEntity.ok(competencyLevelService.getCompetencyLevel(id));
     }
 
     @GetMapping("/all")
