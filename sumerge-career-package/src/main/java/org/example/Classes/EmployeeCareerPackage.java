@@ -1,0 +1,51 @@
+package org.example.Classes;
+
+import javax.persistence.*;
+
+@Entity
+@Table(
+        name = "employee_career_package"
+)
+public class EmployeeCareerPackage {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private int employeeId; // from USERDB
+
+    @ManyToOne
+    @JoinColumn(name = "template_Id", nullable = false)
+    private CareerPackageTemplate careerPackageTemplate;
+
+    public EmployeeCareerPackage(){}
+
+    public EmployeeCareerPackage(int id, int employeeId, CareerPackageTemplate careerPackageTemplate) {
+        this.id = id;
+        this.employeeId = employeeId;
+        this.careerPackageTemplate = careerPackageTemplate;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public CareerPackageTemplate getCareerPackageTemplate() {
+        return careerPackageTemplate;
+    }
+
+    public void setCareerPackageTemplate(CareerPackageTemplate careerPackageTemplate) {
+        this.careerPackageTemplate = careerPackageTemplate;
+    }
+}

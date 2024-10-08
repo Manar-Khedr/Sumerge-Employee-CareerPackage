@@ -1,6 +1,7 @@
 package org.example.Classes;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(
@@ -16,6 +17,9 @@ public class CareerPackageTemplate {
     private int totalLearningHoursRequired;
     private int knowledgeSharingSessionsRequired;
     private int improvementInitiativesRequired;
+
+    @OneToMany(mappedBy = "careerPackageTemplate", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<EmployeeCareerPackage> employeeCareerPackages;
 
     public CareerPackageTemplate(){}
 
