@@ -1,6 +1,7 @@
 package org.example.Classes;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(
@@ -16,6 +17,9 @@ public class EmployeeCareerPackage {
     @ManyToOne
     @JoinColumn(name = "template_Id", nullable = false)
     private CareerPackageTemplate careerPackageTemplate;
+
+    @OneToMany(mappedBy = "employeeCareerPackage", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ExperienceProfile> experienceProfileList;
 
     public EmployeeCareerPackage(){}
 
