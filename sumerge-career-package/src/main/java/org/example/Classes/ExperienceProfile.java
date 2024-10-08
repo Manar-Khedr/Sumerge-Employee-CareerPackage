@@ -4,6 +4,7 @@ import org.springframework.context.annotation.EnableMBeanExport;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(
@@ -41,6 +42,9 @@ public class ExperienceProfile {
     @ManyToOne
     @JoinColumn(name = "employee_career_package_id", nullable = false)
     private EmployeeCareerPackage employeeCareerPackage;
+
+    @OneToMany(mappedBy = "experienceProfile", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ProjectInvolvementPhase> projectInvolvementPhases;
 
     public ExperienceProfile(String profileName, boolean metAcceptance, String clientName, String projectNature, String projectLocation, String employerName, Date projectStart, Date projectEnd, Date employeeInvolvementStart, Date employeeInvolvementEnd, int projectTeamSize, String responsibilities, String buisinessOpportunity, String problemScopeAndComplexity, String relationshipWithClient, String solutionContribution, String teamRelationship, String majorDeliverables, String suggestions, String moduleDescriptions, String projectDeliveryComment, String projectSuccessComment, String lessonsLearned, EmployeeCareerPackage employeeCareerPackage) {
         this.profileName = profileName;
