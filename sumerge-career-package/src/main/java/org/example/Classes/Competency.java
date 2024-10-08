@@ -3,6 +3,7 @@ package org.example.Classes;
 import org.example.Enums.CompetencyType;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(
@@ -16,6 +17,8 @@ public class Competency {
     private String title;
     private String definition;
     private CompetencyType type;
+    @OneToMany(mappedBy = "competency", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CompetencyLevel> competencyLevelList;
 
     public Competency(){}
 
