@@ -27,6 +27,9 @@ public class EmployeeCareerPackage {
     @OneToMany(mappedBy = "employeeCareerPackage", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<KnowledgeSharingSession> knowledgeSharingSessions;
 
+    @OneToMany(mappedBy = "employeeCareerPackage", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ImprovementInitiatives> improvementInitiatives;
+
     public EmployeeCareerPackage(){}
 
     public EmployeeCareerPackage(int id, int employeeId, CareerPackageTemplate careerPackageTemplate) {
