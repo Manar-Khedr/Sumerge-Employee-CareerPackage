@@ -18,6 +18,8 @@ public class AdditionalReference {
     @JoinColumn(name = "employee_career_package_id", nullable = false)
     private EmployeeCareerPackage employeeCareerPackage;
 
+    public AdditionalReference(){}
+
     public AdditionalReference(String description, String title, EmployeeCareerPackage employeeCareerPackage) {
         this.description = description;
         this.title = title;
