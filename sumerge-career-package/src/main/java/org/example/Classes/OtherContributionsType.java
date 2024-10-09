@@ -16,6 +16,8 @@ public class OtherContributionsType {
 
     @OneToMany(mappedBy = "otherContributionsType", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OtherContributionsRequirement> otherContributionsRequirements;
+    @OneToMany(mappedBy = "otherContributionsType", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OtherContributionsEntity> otherContributionsEntities;
 
 
     public OtherContributionsType(){}
