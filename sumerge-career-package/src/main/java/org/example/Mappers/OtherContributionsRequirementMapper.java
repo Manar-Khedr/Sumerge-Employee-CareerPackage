@@ -1,0 +1,15 @@
+package org.example.Mappers;
+
+import org.example.Classes.OtherContributionsRequirement;
+import org.mapstruct.Mapper;
+
+import java.util.List;
+
+@Mapper(componentModel = "spring")
+public interface OtherContributionsRequirementMapper {
+
+    OtherContributionsRequirementDTO otherContributionsRequirementToOtherContributionsRequirementDTO(OtherContributionsRequirement otherContributionsRequirement);
+    OtherContributionsRequirement otherContributionsRequirementDTOToOtherContributionsRequirement(OtherContributionsRequirementDTO otherContributionsRequirementDTO);
+    List<OtherContributionsRequirementDTO> otherContributionsRequirementListToOtherContributionsRequirementDTOList(List<OtherContributionsRequirement> otherContributionsRequirements);
+    List<OtherContributionsRequirement> otherContributionsRequirementDTOListToOtherContributionsRequirementList(List<OtherContributionsRequirementDTO> otherContributionsRequirementDTOS);
+}

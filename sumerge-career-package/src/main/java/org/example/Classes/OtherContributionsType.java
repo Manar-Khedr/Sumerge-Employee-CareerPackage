@@ -1,6 +1,7 @@
 package org.example.Classes;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(
@@ -12,6 +13,10 @@ public class OtherContributionsType {
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private int id;
     private String description;
+
+    @OneToMany(mappedBy = "otherContributionsType", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OtherContributionsRequirement> otherContributionsRequirements;
+
 
     public OtherContributionsType(){}
 
