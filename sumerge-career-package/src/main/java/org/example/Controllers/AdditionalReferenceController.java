@@ -24,13 +24,13 @@ public class AdditionalReferenceController {
     @DeleteMapping
     public ResponseEntity<String> deleteAdditionalReference(@RequestBody String title){
         additionalReferenceService.deleteAdditionalReference(title);
-        return ResponseEntity.ok("Additoinal Reference created");
+        return ResponseEntity.ok("Additoinal Reference deleted");
     }
 
     @PutMapping
     public ResponseEntity<String> updateAdditonalReference(@RequestBody AdditionalReferenceDTO additionalReferenceDTO){
         additionalReferenceService.updateAdditonalReference(additionalReferenceDTO);
-        return ResponseEntity.ok("Additoinal Reference created");
+        return ResponseEntity.ok("Additoinal Reference updated");
     }
 
     @GetMapping("/{title}")
